@@ -76,8 +76,28 @@ r4(config-std-nacl)ex
 R4(config)#router ospf 1
 R4(config-router)#distribute-list 1 in
 ```
-### *Yастройка таблице маршрутизации*
+### *Настройка таблице маршрутизации*
+- `Настройка на R9`
+```
+R9(config)# ip access-list standard 1
+R9(config-std-nacl)deny 10.10.1.0 0.0.0.255
+R9(config-std-nacl)deny 10.10.3.0 0.0.0.255
+R9(config-std-nacl)permit any
+R9(config-std-nacl)ex
+R9(config)#router ospf 1
+R9(config-router)#distribute-list 1 in
+```
 
+- `Настройка на R5`
+```
+R5(config)# ip access-list standard 1
+R5(config-std-nacl)deny 10.10.0.0 0.0.0.255
+R5(config-std-nacl)deny 10.10.2.0 0.0.0.255
+R5(config-std-nacl)permit any
+R5(config-std-nacl)ex
+R5(config)#router ospf 1
+R5(config-router)#distribute-list 1 in
+```
 
 
 ### Задание 2. 
