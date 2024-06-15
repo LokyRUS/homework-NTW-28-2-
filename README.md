@@ -55,6 +55,7 @@
 ### *Настроить фильтрацию маршрутов из Area 7*
 - `Настройка на R3`
 ```
+R4(config)#router ospf 1
 R3(config-router)#area 0 filter-list prefix Area0_filter_list
 R3(config-router)#ip prefix-list Area1_filter_list deny 172.16.7.0/25
 R3(config-router)#ip prefix-list Area1_filter_list deny 172.16.77.0/25
@@ -62,6 +63,21 @@ R3(config-router)#ip prefix-list Area1_filter_list permit 172.16.1.0/24
 R3(config-router)#area 1 filter-list prefix Area1_filter_list in
 
 ```
+
+### *Настроить фильтрацию маршрутов из Area 3 так, чтоб маршруты: 192.168.8.0/25 и 192.168.88.0/25 не попадали в Area 5.*
+- `Настройка на R4`
+```
+
+R4(config)# ip access-list standard 1
+R4(config-std-nacl)deny 192.168.8.0 0.0.0.127
+R4(config-std-nacl)deny 192.168.88.0 0.0.0.127
+R4(config-std-nacl)permit any
+r4(config-std-nacl)ex
+R4(config)#router ospf 1
+R4(config-router)#distribute-list 1 in
+```
+### *Yастройка таблице маршрутизации*
+
 
 
 ### Задание 2. 
