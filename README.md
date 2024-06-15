@@ -148,7 +148,9 @@ show ip ospf interface brief
 debug interface Fa0/1
 debug ospf hello
 ```
+ ### можно установить и решить проблему установления соседства?
 
+ Можно, На R2 достаточно поменять на Fa0/1 зону area1 на area0
 
 ---
 
