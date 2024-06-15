@@ -51,6 +51,18 @@
 *Для каждого подзадания приведите список маршрутизаторов, на которых необходимы изменения со списком полных команд на нём.*
 
 ---
+# Ответ
+### *Настроить фильтрацию маршрутов из Area 7*
+- `Настройка на R3`
+```
+R3(config-router)#area 0 filter-list prefix Area0_filter_list
+R3(config-router)#ip prefix-list Area1_filter_list deny 172.16.7.0/25
+R3(config-router)#ip prefix-list Area1_filter_list deny 172.16.77.0/25
+R3(config-router)#ip prefix-list Area1_filter_list permit 172.16.1.0/24
+R3(config-router)#area 1 filter-list prefix Area1_filter_list in
+
+```
+
 
 ### Задание 2. 
 
