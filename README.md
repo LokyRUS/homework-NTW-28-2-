@@ -79,10 +79,10 @@ R4(config)#router ospf 1
 R4(config-router)#distribute-list 1 in 
 ```
 ```
-R3(config)#ip prefix-list Area5_filter_list permit 10.10.2.0/24
-R3(config)#ip prefix-list Area5_filter_list deny 10.10.0.0/24
-R3(config)#ip prefix-list Area5_filter_list permit 10.10.3.0/24
-R(config-router)#area 7 filter-list prefix Area7_filter_list in
+R3(config)#ip prefix-list Area5_filter_list deny 192.168.8.0/25
+R3(config)#ip prefix-list Area5_filter_list deny 192.168.88.0/25
+R3(config)#ip prefix-list Area5_filter_list permit any 
+R(config-router)#area 5 filter-list prefix Area5_filter_list in
 ```
 
 ### *Настройка таблице маршрутизации*
