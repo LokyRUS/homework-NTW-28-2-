@@ -69,8 +69,7 @@ R3(config-router)#area 1 filter-list prefix Area1_filter_list in
 ### *Настроить фильтрацию маршрутов из Area 3 так, чтоб маршруты: 192.168.8.0/25 и 192.168.88.0/25 не попадали в Area 5.*
 - `Настройка на R4`
 ```
-
- R4(config)# ip access-list standard 1
+R4(config)# ip access-list standard 1
 R4(config-std-nacl)deny 192.168.8.0 0.0.0.127
 R4(config-std-nacl)deny 192.168.88.0 0.0.0.127
 R4(config-std-nacl)permit any
