@@ -70,13 +70,13 @@ R3(config-router)#area 1 filter-list prefix Area1_filter_list in
 - `Настройка на R4`
 ```
 
-~~R4(config)# ip access-list standard 1
+ R4(config)# ip access-list standard 1
 R4(config-std-nacl)deny 192.168.8.0 0.0.0.127
 R4(config-std-nacl)deny 192.168.88.0 0.0.0.127
 R4(config-std-nacl)permit any
 r4(config-std-nacl)ex
 R4(config)#router ospf 1
-R4(config-router)#distribute-list 1 in~~
+R4(config-router)#distribute-list 1 in 
 ```
 ### *Настройка таблице маршрутизации*
 - `Настройка на R9`
