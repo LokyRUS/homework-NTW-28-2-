@@ -67,21 +67,14 @@ R3(config-router)#area 1 filter-list prefix Area1_filter_list in
 ```
 
 ### *Настроить фильтрацию маршрутов из Area 3 так, чтоб маршруты: 192.168.8.0/25 и 192.168.88.0/25 не попадали в Area 5.*
-- `Настройка на R4`
+
+- `Настройка на R2`
+
 ```
-R4(config)# ip access-list standard 1
-R4(config-std-nacl)deny 192.168.8.0 0.0.0.127
-R4(config-std-nacl)deny 192.168.88.0 0.0.0.127
-R4(config-std-nacl)permit any
-r4(config-std-nacl)ex
-R4(config)#router ospf 1
-R4(config-router)#distribute-list 1 in 
-```
-```
-R3(config)#ip prefix-list Area5_filter_list deny 192.168.8.0/25
-R3(config)#ip prefix-list Area5_filter_list deny 192.168.88.0/25
-R3(config)#ip prefix-list Area5_filter_list permit any 
-R(config-router)#area 5 filter-list prefix Area5_filter_list in
+R2(config-router)#ip prefix-list Area5_filter_list deny 192.168.8.0/25
+R2(config-router)#ip prefix-list Area5_filter_list deny 192.168.88.0/25
+R2(config-router)#ip prefix-list Area5_filter_list permit any 
+R2(config-router))#area 5 filter-list prefix Area5_filter_list in
 ```
 
 ### *Настройка таблице маршрутизации*
