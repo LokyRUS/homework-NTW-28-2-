@@ -74,6 +74,8 @@ Router(config-if)# ex
 Router(config)#interface fastEthernet 0/0
 Router(config-if)# ip address 192.168.1.10 255.255.255.0
 Router(config-if)# ex
+Router(config)#ip default-gateway 192.168.1.1
+Router(config)#ip route 0.0.0.0 0.0.0.0 192.168.1.1 
 ```
 ## Сразу настройка telnet 
 ```
@@ -110,6 +112,7 @@ NAT-Router(config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 any
 NAT-Router(config)#
 NAT-Router(config)#ip nat inside source list 100 pool pool2
 NAT-Router(config)#
+Router(config)#ip route 10.10.10.10 255.255.255.255 192.168.1.10
 
 ```
 ### Задание 2. 
