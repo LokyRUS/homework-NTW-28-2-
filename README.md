@@ -113,8 +113,18 @@ NAT-Router(config)#
 NAT-Router(config)#ip nat inside source list 100 pool pool2
 NAT-Router(config)#
 Router(config)#ip route 10.10.10.10 255.255.255.255 192.168.1.10
+```
+`- Internet-router`
 
 ```
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface fastEthernet 0/1
+Router(config-if)# ip address 8.8.8.8 255.255.255.0
+Router(config-if)# ex
+```
+
+
 ### Задание 2. 
 
 Обеспечьте доступ с Internet-router к telnet-server(10.10.10.10) по протоколу telnet, не настраивая маршрутизацию на Internet-router. Доступ из LAN к 8.8.8.8 должен сохраниться.
