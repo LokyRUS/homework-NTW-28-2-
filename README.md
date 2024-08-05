@@ -74,8 +74,17 @@ Router(config-if)# ex
 Router(config)#interface fastEthernet 0/0
 Router(config-if)# ip address 192.168.1.10 255.255.255.0
 Router(config-if)# ex
-
-
+```
+## Сразу настройка telnet 
+```
+Router(config)#username admin secret admin
+Router(config)#line vty 0 15
+Router(config-line)#login local 
+Router(config-line)#exit
+Router(config)#enable secret cisco	
+Router(config)#exit
+Router#
+Router#wr
 ```
 
 ### Задание 2. 
