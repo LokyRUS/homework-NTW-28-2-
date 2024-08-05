@@ -61,6 +61,22 @@ Fastethernet0/0	8.8.8.8/24
 *В качестве ответа приложите вывод команды "sh run" с маршрутизатора NAT-Router.*
 
 ------
+#  Ответ
+### натсройка оборудования 
+`- 1841 telnet server`
+
+```
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface loopback0
+Router(config-if)# ip address 10.10.10.10 255.255.255.255
+Router(config-if)# ex
+Router(config)#interface fastEthernet 0/0
+Router(config-if)# ip address 192.168.1.10 255.255.255.0
+Router(config-if)# ex
+
+
+```
 
 ### Задание 2. 
 
