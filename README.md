@@ -87,12 +87,31 @@ Router#
 Router#wr
 ```
 
-`PC`
+`-PC`
 ```
 Static :192.168.1.11 255.255.255.0
 gateway: 192.168.1.1 
 ```
+`- NAT-Router`
 
+```
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+NAT-Router(config)#interface fastEthernet 0/0
+NAT-Router(config-if)# ip address 192.168.1.1 255.255.255.0
+NAT-Router(config-if)ip nat inside
+NAT-Router(config-if)# ex
+NAT-Router(config)#interface fastEthernet 0/1
+NAT-Router(config-if)# ip address 8.8.8.1 255.255.255.0
+NAT-Router(config-if)ip nat outside 
+NAT-Router(config-if)# ex
+NAT-Router(config)#ip nat pool pool2 8.8.8.2 8.8.8.7 netmask 255.255.255.0	
+NAT-Router(config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 any
+NAT-Router(config)#
+NAT-Router(config)#ip nat inside source list 100 pool pool2
+NAT-Router(config)#
+
+```
 ### Задание 2. 
 
 Обеспечьте доступ с Internet-router к telnet-server(10.10.10.10) по протоколу telnet, не настраивая маршрутизацию на Internet-router. Доступ из LAN к 8.8.8.8 должен сохраниться.
