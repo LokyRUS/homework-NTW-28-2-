@@ -127,7 +127,9 @@ Router(config)#interface fastEthernet 0/1
 Router(config-if)# ip address 8.8.8.8 255.255.255.0
 Router(config-if)# ex
 ```
+# ![image2]()
 
+# ![image3]()
 
 ### Задание 2. 
 
@@ -136,6 +138,22 @@ Router(config-if)# ex
 *В качестве ответа приложите вывод команды "sh run" с маршрутизатора NAT-Router.*
 
 ------
+# Ответ 
+
+# [скачать.pkt]()
+
+### ! telnet настроен ранее в задании 1 
+
+- На `NAT-Router`выпоняем команду
+
+```
+ip nat inside source static tcp 10.10.10.10 23 8.8.8.1 2323
+```
+Проверяем `telnet` на роутере провайдера
+# ![image4]()
+
+- `sh run` NAT-Router
+# ![image5]()
 
 ### Правила приема домашнего задания
 
