@@ -64,7 +64,7 @@ Fastethernet0/0	8.8.8.8/24
 #  Ответ
 ### натсройка оборудования 
 
-# ![image1]()
+# ![image1](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/1.PNG)
 # [скачать.pkt]()
 
 `- 1841 telnet server`
@@ -127,9 +127,9 @@ Router(config)#interface fastEthernet 0/1
 Router(config-if)# ip address 8.8.8.8 255.255.255.0
 Router(config-if)# ex
 ```
-# ![image2]()
+# ![image2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/2.PNG)
 
-# ![image3]()
+# ![image3](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/3.PNG)
 
 ### Задание 2. 
 
@@ -150,10 +150,10 @@ Router(config-if)# ex
 ip nat inside source static tcp 10.10.10.10 23 8.8.8.1 2323
 ```
 Проверяем `telnet` на роутере провайдера
-# ![image4]()
+# ![image4](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/4.PNG)
 
 - `sh run` NAT-Router
-# ![image5]()
+# ![image5](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/5.PNG)
 
 ### Правила приема домашнего задания
 
