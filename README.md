@@ -65,7 +65,7 @@ Fastethernet0/0	8.8.8.8/24
 ### натсройка оборудования 
 
 # ![image1](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/1.PNG)
-# [скачать.pkt]()
+# [скачать.pkt](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/%D0%B4%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0zadanie1.pkt)
 
 `- 1841 telnet server`
 
@@ -140,7 +140,7 @@ Router(config-if)# ex
 ------
 # Ответ 
 
-# [скачать.pkt]()
+# [скачать.pkt](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/%D0%B4%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0zadanie2.pkt)
 
 ### ! telnet настроен ранее в задании 1 
 
