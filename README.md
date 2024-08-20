@@ -211,6 +211,9 @@ ciscoasa(config)#access-list 106 permit icmp 10.10.10.0 255.255.255.0 192.168.3.
 ciscoasa(config)#access-group 106 in interface OUTSIDE 
 ciscoasa(config)#ex
 ```
+# ![images1]()
+# ![images2]()
+# ![images3]()
 
 ### Правила приема домашнего задания
 
