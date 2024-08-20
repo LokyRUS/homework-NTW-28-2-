@@ -211,9 +211,9 @@ ciscoasa(config)#access-list 106 permit icmp 10.10.10.0 255.255.255.0 192.168.3.
 ciscoasa(config)#access-group 106 in interface OUTSIDE 
 ciscoasa(config)#ex
 ```
-# ![images1]()
-# ![images2]()
-# ![images3]()
+# ![images1](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/1.PNG)
+# ![images2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/2.PNG)
+# ![images3](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/3.PNG)
 
 ### Правила приема домашнего задания
 
