@@ -65,6 +65,12 @@ service-policy test global
 ------
 # Ответ
 
+# Топология 
+
+# [Скачать Файл.pkt]()
+
+# ![images1]()
+
 # Первоначальные настройки
 ```
 ciscoasa#configure terminal 
@@ -131,7 +137,8 @@ ciscoasa(config)#access-group 100 in interface OUTSIDE
 ciscoasa(config)#access-list 101 permit icmp host 192.168.3.2 192.168.1.0 255.255.255.0
 access-group 101  out interface inSIDE  
 ```
-
+# ![images2]()
+# ![images3]()
 
 ### Правила приема домашнего задания
 
