@@ -67,9 +67,9 @@ service-policy test global
 
 # Топология 
 
-# [Скачать Файл.pkt]()
+# [Скачать Файл.pkt](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/zadanie.pkt)
 
-# ![images1]()
+# ![images1](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/1.PNG)
 
 # Первоначальные настройки
 ```
@@ -137,8 +137,8 @@ ciscoasa(config)#access-group 100 in interface OUTSIDE
 ciscoasa(config)#access-list 101 permit icmp host 192.168.3.2 192.168.1.0 255.255.255.0
 access-group 101  out interface inSIDE  
 ```
-# ![images2]()
-# ![images3]()
+# ![images2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/2.PNG)
+# ![images3](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/3.PNG)
 
 ### Правила приема домашнего задания
 
