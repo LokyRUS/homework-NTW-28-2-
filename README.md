@@ -74,7 +74,7 @@ ciscoasa(config-if)#ip address 192.168.1.1 255.255.255.0
 ciscoasa(config-if)#no shutdown 
 ciscoasa(config-if)#ex
 ciscoasa(config)#interface gigabitEthernet 1/3
-ciscoasa(config-if)#nameif Printer
+ciscoasa(config-if)#nameif PRINTER
 ciscoasa(config-if)#ip address 192.168.2.1
 ciscoasa(config-if)#no shutdown 
 ciscoasa(config-if)#ex
@@ -94,7 +94,7 @@ ciscoasa(config)#interface gigabitEthernet 1/1
 ciscoasa(config-if)#security-level 100
 ciscoasa(config-if)#ex
 ciscoasa(config)#interface gigabitEthernet 1/3
-ciscoasa(config-if)#security-level 70
+ciscoasa(config-if)#security-level 0
 ciscoasa(config-if)#ex
 ciscoasa(config)#interface gigabitEthernet 1/4
 ciscoasa(config-if)#security-level 50
@@ -104,116 +104,34 @@ ciscoasa(config-if)#security-level 0
 ciscoasa(config-if)#
 
 ```
-# Чтобы инспекция icmp нормально работала, удаляем политику по умолчанию и создайте новую
-```
-no service-policy global_policy global 
+## Выполнение с 1 по 3 пункт. Чтобы инспекция icmp нормально работала, удаляем политику по умолчанию и создаем новую.
 
 ```
-
-```
-policy-map test 
-class inspection_default
-inspect http 
-inspect icmp 
-service-policy test global
-```
- 
-
-# Разрешаем прохождение только ICMP трафика из INSIDE в OUTSIDE, в обратную сторону разрешить ответный трафик`
-```
-ciscoasa(config)#access-list inspect-inside extended permit ip 192.168.1.0 255.255.255.0 host 10.10.10.2
-ciscoasa(config)#class-map inside-outside-inspect-icmp
-ciscoasa(config-cmap)#match access-list inspect-inside
-ciscoasa(config)#policy-map inside-outside
-ciscoasa(config-pmap)#class inside-outside-inspect-icmp
-ciscoasa(config-pmap-c)#inspect icmp 
-ciscoasa(config-pmap-c)#ex
-ciscoasa(config)#service-policy inside-outside interface INSIDE
-ciscoasa(config)#
-
-```
-```
-ciscoasa(config)#access-list 100 permit icmp 10.10.10.0 255.255.255.0 192.168.1.0 255.255.255.0
-ciscoasa(config)#access-group 100 in interface OUTSIDE 
-ciscoasa(config)#ex
-```
-
-# Разрешить прохождение только HTTP-трафика из INSIDE в DMZ, в обратную сторону разрешить ответный трафик` 
-```
-ciscoasa(config)#access-list inspect-http-DMZ extended permit ip 192.168.1.0 255.255.255.0 host 192.168.3.2
-ciscoasa(config)#class-map inside-DMZ-inspect-http
-ciscoasa(config-cmap)#match access-list inspect-http-DMZ
-ciscoasa(config)#policy-map inside-outside
-ciscoasa(config-pmap)#class inside-DMZ-inspect-http 
+ciscoasa(config) no service-policy global_policy global 
+ciscoasa(config) policy-map test 
+ciscoasa(config-pmap)#class inspection_default
 ciscoasa(config-pmap-c)#inspect http 
-ciscoasa(config-pmap-c)#ex
-ciscoasa(config)#service-policy inside-outside interface INSIDE
-ciscoasa(config)#
-
-```
-```
-ciscoasa(config)#access-list 101 permit tcp 192.168.3.0 255.255.255.0 192.168.1.0 255.255.255.0
-ciscoasa(config)#access-group 101 in interface DMZ 
-ciscoasa(config)#ex
-```
-# Разрешаем прохождение только ICMP-трафика из INSIDE в PRINTER, в обратную сторону разрешить ответный трафик
-```
-
-ciscoasa(config)#access-list inspect-icmp-printer extended permit ip 192.168.1.0 255.255.255.0 host 192.168.2.2
-ciscoasa(config)#class-map inside-printer-inspect-icmp
-ciscoasa(config-cmap)#match access-list inspect-icmp-printer
-ciscoasa(config)#policy-map inside-outside
-ciscoasa(config-pmap)#class inside-printer-inspect-icmp
-ciscoasa(config-pmap-c)#inspect icmp
-ciscoasa(config-pmap-c)#ex
-ciscoasa(config)#service-policy inside-outside interface INSIDE
-ciscoasa(config)#
-```
-```
-ciscoasa(config)#access-list 102 permit icmp 192.168.2.0 255.255.255.0 192.168.1.0 255.255.255.0
-ciscoasa(config)#access-group 102 in interface PRINTER 
-ciscoasa(config)#ex
-```
-# Из OUTSIDE разрешить инициировать сессии в DMZ по 80 TCP порту
-```
-ciscoasa(config)#access-list 103 permit tcp 10.10.10.0 255.255.255.0 host 192.168.3.2 eq 80
-ciscoasa(config)#access-group 103 in interface OUTSIDE
-
-
-``
-ciscoasa(config)access-list 104 permit tcp 192.168.2.0 255.255.255.0 10.10.10.0 255.255.255.0
-ciscoasa(config)#access-group 104 in interface PRINTER
-
-ciscoasa(config)access-list 105 permit tcp 192.168.1.0 255.255.255.0 10.10.10.0 255.255.255.0
-ciscoasa(config)#access-group 105 in interface INSIDE
-
-```
-`Из DMZ разрешить инициировать трафик в OUTSIDE по ICMP, в INSIDE и PRINTER разрешить только ответные пакеты`
-```
-ciscoasa(config)#access-list inspect-inside extended permit ip 192.168.3.0 255.255.255.0 host 10.10.10.2
-ciscoasa(config)#class-map outside-icmp-DMZ
-ciscoasa(config-cmap)#match access-list inspect-inside
-ciscoasa(config)#policy-map inside-outside-DMZ
-ciscoasa(config-pmap)#class outside-icmp-DMZ
 ciscoasa(config-pmap-c)#inspect icmp 
 ciscoasa(config-pmap-c)#ex
-ciscoasa(config)#service-policy inside-outside-DMZ interface DMZ
-ciscoasa(config)#
+ciscoasa(config)#service-policy test global
+```
+## Выполнение 4 пункта. Из OUTSIDE разрешить инициировать сессии в DMZ по 80 TCP порту  
+```
+ciscoasa(config)#access-list 100 permit tcp 10.10.10.0 255.255.255.0 host 192.168.3.2 eq 80
+ciscoasa(config)#access-group 100 in interface OUTSIDE
+```
+
+## Выполнение 5 пункта. Из PRINTER запрещено иницировать трафик во все остальные зоны по дефолту 
+
+# Выполнение 6 пункта. Из DMZ разрешить инициировать трафик в OUTSIDE по ICMP, в INSIDE и PRINTER разрешить только ответные пакеты.
+
+- ответные трафик из PRINTER по дефолту на основании sec зон. 
 
 ```
+ciscoasa(config)#access-list 101 permit icmp host 192.168.3.2 192.168.1.0 255.255.255.0
+access-group 101  out interface inSIDE  
 ```
-ciscoasa(config)#access-list 105 permit icmp 192.168.3.0 255.255.255.0 10.10.10.0 255.255.255.0
-access-group 105 in interface DMZ 
-```
- 
-```
-ciscoasa(config)#access-list 106 permit icmp 10.10.10.0 255.255.255.0 192.168.3.0 255.255.255.0
-ciscoasa(config)#access-group 106 in interface OUTSIDE 
-ciscoasa(config)#ex
-```
-# ![images1](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/1.PNG)
-# ![images2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/2.PNG)
-# ![images3](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/3.PNG)
+
 
 ### Правила приема домашнего задания
 
