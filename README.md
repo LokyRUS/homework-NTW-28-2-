@@ -135,7 +135,7 @@ ciscoasa(config)#access-group 100 in interface OUTSIDE
 
 ```
 ciscoasa(config)#access-list 101 permit icmp host 192.168.3.2 192.168.1.0 255.255.255.0
-access-group 101  out interface inSIDE  
+ciscoasa(config)#access-group 101 in interface DMZ  
 ```
 # ![images2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/2.PNG)
 # ![images3](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/3.PNG)
