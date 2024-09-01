@@ -121,6 +121,13 @@ ciscoasa(config-pmap-c)#inspect icmp
 ciscoasa(config-pmap-c)#ex
 ciscoasa(config)#service-policy test global
 ```
+## Зарет на нелегитимный трафик из зоны INSIDE
+```
+ciscoasa(config)#access-list 102 extended deny icmp any any
+ciscoasa(config)#access-list 102 extended deny tcp any any
+ciscoasa(config)#access-list 102 extended deny udp any any
+ciscoasa(config)#access-group 102 out interface INSIDE
+```
 ## Выполнение 4 пункта. Из OUTSIDE разрешить инициировать сессии в DMZ по 80 TCP порту  
 ```
 ciscoasa(config)#access-list 100 permit tcp 10.10.10.0 255.255.255.0 host 192.168.3.2 eq 80
