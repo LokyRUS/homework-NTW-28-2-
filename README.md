@@ -127,15 +127,25 @@ ciscoasa(config)#access-list 100 permit tcp 10.10.10.0 255.255.255.0 host 192.16
 ciscoasa(config)#access-group 100 in interface OUTSIDE
 ```
 
-## Выполнение 5 пункта. Из PRINTER запрещено иницировать трафик во все остальные зоны по дефолту 
+## Выполнение 5 пункта. Из PRINTER запрещено иницировать трафик во все остальные зоны
+ciscoasa(config)#access-list 104 extended deny icmp any any
+ciscoasa(config)#access-list 104 extended deny tcp any any
+ciscoasa(config)#access-list 104 extended deny udp any any
+ciscoasa(config)#access-group 100 out interface PRINTER
+
 
 ## Выполнение 6 пункта. Из DMZ разрешить инициировать трафик в OUTSIDE по ICMP, в INSIDE и PRINTER разрешить только ответные пакеты.
 
 - ответные трафик из PRINTER по дефолту на основании sec зон. 
-
 ```
-ciscoasa(config)#access-list 101 permit icmp host 192.168.3.2 192.168.1.0 255.255.255.0
-ciscoasa(config)#access-group 101 in interface DMZ  
+ciscoasa(config)#access-list 101 extended permit icmp host 192.168.3.2 192.168.1.0 255.255.255.0
+ciscoasa(config)#access-list 101 extended permit icmp host 192.168.3.2 10.10.10.0 255.255.255.0
+ciscoasa(config)#access-group 101 in interface DMZ
+ciscoasa(config)#access-list 103 extended permit icmp any any
+ciscoasa(config)#access-list 103 extended deny udp any any
+ciscoasa(config)#access-list 103 extended deny tcp any any
+ciscoasa(config)#access-group 103 out interface DMZ
+
 ```
 # ![images2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/2.PNG)
 # ![images3]()
