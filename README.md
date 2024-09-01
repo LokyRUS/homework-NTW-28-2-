@@ -148,7 +148,7 @@ ciscoasa(config)#access-group 103 out interface DMZ
 
 ```
 # ![images2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/2.PNG)
-# ![images3]()
+# ![images3](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/3-1.PNG)
 
 ### Правила приема домашнего задания
 
