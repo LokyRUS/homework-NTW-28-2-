@@ -128,11 +128,12 @@ ciscoasa(config)#access-group 100 in interface OUTSIDE
 ```
 
 ## Выполнение 5 пункта. Из PRINTER запрещено иницировать трафик во все остальные зоны
+```
 ciscoasa(config)#access-list 104 extended deny icmp any any
 ciscoasa(config)#access-list 104 extended deny tcp any any
 ciscoasa(config)#access-list 104 extended deny udp any any
 ciscoasa(config)#access-group 104 out interface PRINTER
-
+```
 
 ## Выполнение 6 пункта. Из DMZ разрешить инициировать трафик в OUTSIDE по ICMP, в INSIDE и PRINTER разрешить только ответные пакеты.
 
