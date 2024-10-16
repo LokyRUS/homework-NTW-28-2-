@@ -36,6 +36,83 @@
 
 *Отправьте полный список конфигураций: каждого leaf и spine маршрутизаторов.*
 
+ # Ответ
+## Топология
+![images](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/1.PNG)
+
+[Скачать файл.pkt]()
+
+## Настройка Spine5
+```
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Spine5(config)#router bgp 65000
+Spine5(config-router)#network 10.10.0.0 mask 255.255.255.252
+Spine5(config-router)#network 10.30.0.0 mask 255.255.255.252
+Spine5(config-router)#network 10.50.0.0 mask 255.255.255.252
+Spine5(config-router)#network 10.70.0.0 mask 255.255.255.252
+Spine5(config-router)#neighbor 10.10.0.2 remote-as 65001
+Spine5(config-router)#neighbor 10.30.0.2 remote-as 65002
+Spine5(config-router)#neighbor 10.50.0.2 remote-as 65003
+Spine5(config-router)#neighbor 10.70.0.2 remote-as 65004
+```
+## Настройка Spine6
+```
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Spine6(config)#router bgp 65000
+Spine6(config-router)#network 10.20.0.0 mask 255.255.255.252
+Spine6(config-router)#network 10.40.0.0 mask 255.255.255.252
+Spine6(config-router)#network 10.60.0.0 mask 255.255.255.252
+Spine6(config-router)#network 10.80.0.0 mask 255.255.255.252
+Spine6(config-router)#neighbor 10.20.0.2 remote-as 65001
+Spine6(config-router)#neighbor 10.40.0.2 remote-as 65002
+Spine6(config-router)#neighbor 10.60.0.2 remote-as 65003
+Spine6(config-router)#neighbor 10.80.0.2 remote-as 65004
+```
+## Настройка Leaf1
+```
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Leaf1(config)#router bgp 65001
+Leaf1(config-router)#network 192.168.10.0 mask 255.255.255.0
+Leaf1(config-router)#network 10.10.0.0 mask 255.255.255.252
+Leaf1(config-router)#network 10.20.0.0 mask 255.255.255.252
+Leaf1(config-router)#neighbor 10.10.0.1 remote-as 65000
+Leaf1(config-router)#neighbor 10.20.0.1 remote-as 65000
+```
+## Настройка Leaf2
+```
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Leaf2(config)#router bgp 65002
+Leaf2(config-router)#network 10.30.0.0 mask 255.255.255.252
+Leaf2(config-router)#network 10.40.0.0 mask 255.255.255.252
+Leaf2(config-router)#neighbor 10.30.0.1 remote-as 65000
+Leaf2(config-router)#neighbor 10.40.0.1 remote-as 65000
+```
+## Настройка Leaf3
+```
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Leaf3(config)#router bgp 65003
+Leaf3(config-router)#network 10.50.0.0 mask 255.255.255.252
+Leaf3(config-router)#network 10.60.0.0 mask 255.255.255.252
+Leaf3(config-router)#neighbor 10.50.0.1 remote-as 65000
+Leaf3(config-router)#neighbor 10.60.0.1 remote-as 65000
+```
+## Настройка Leaf4
+```
+
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Leaf4(config)#router bgp 65004
+Leaf4(config-router)#network 10.70.0.0 mask 255.255.255.252
+Leaf4(config-router)#network 10.80.0.0 mask 255.255.255.252
+Leaf4(config-router)#neighbor 10.70.0.1 remote-as 65000
+Leaf4(config-router)#neighbor 10.80.0.1 remote-as 65000
+```
+
 ## Дополнительное задание (со звездочкой*)
 
 Эти задания дополнительные (не обязательные к выполнению) и никак не повлияют на получение вами зачета по этому домашнему заданию. Вы можете их выполнить, если хотите глубже и/или шире разобраться в материале.
