@@ -1,5 +1,6 @@
 # Домашнее задание к занятию "Построение сетей дата-центра"
 
+## Исполнитель: Смирнов К.Е. 
 ### Цель задания
 
 В результате выполнения этого задания вы научитесь собирать простую underlay сеть ДЦ на основе протокола BGP.
@@ -40,7 +41,7 @@
 ## Топология
 ![images](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/1.PNG)
 
-[Скачать файл.pkt]()
+[Скачать файл.pkt](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/zadanie.pkt)
 
 ## Настройка Spine5
 ```
