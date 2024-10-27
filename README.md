@@ -45,7 +45,7 @@
 ---
 # Ответ
 
-# ![images1]()
+# ![images1](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/1.PNG)
 
 ### Задание 2
 
@@ -60,9 +60,9 @@
 ---
 # Ответ
 
-# ![images2]()
+# ![images2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/2.PNG)
 
-# ![images3]()
+# ![images3](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/3.PNG)
 
 
 ### Задание 3
@@ -78,7 +78,7 @@
 ---
 # Ответ
 
-# ![images4]()
+# ![images4](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/4.PNG)
 
 ### Задание 4
 
@@ -93,9 +93,9 @@
 
 # Ответ
 
-# ![images5]()
+# ![images5](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/5.PNG)
 
-# ![images6]()
+# ![images6](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/6.PNG)
 
 #### Задание
 
@@ -111,9 +111,9 @@
 ---
 # Ответ
 
-# ![images7]()
+# ![images7](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/7.PNG)
 
-# ![images8]()
+# ![images8](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/8.PNG)
 ### Правила приема домашнего задания
 
 В личном кабинете отправлены:
