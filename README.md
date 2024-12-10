@@ -54,11 +54,11 @@ IP: 45.134.127.23
 su -
 ```
 - Установка 
-# ![images1]()
+# ![images1](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/1.PNG)
 
 - Проверяем пользователя и меняем ему креды
 
-# ![images2]()
+# ![images2](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/2.PNG)
 
 - Бэкапим дефолтную конфигурацию 
 ```
@@ -73,13 +73,13 @@ sudo nano /etc/rancid/rancid.conf
 ```
 LIST_OF_GROUPS="netology"
 ```
-# ![images3]()
+# ![images3](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/3.PNG)
 
 - Создаем репозиторий CVS
 ```
 sudo su -c /var/lib/rancid/bin/rancid-cvs -s /bin/bash -l rancid
 ```
-# ![images4]()
+# ![images4](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/4.PNG)
 
 - После выполнения скрипта нужно проверить, что в директории /var/lib/rancid создались папки с именами групп устройств, а в каждой папке есть база устройств router.db:
 ```
@@ -92,15 +92,15 @@ find /var/lib/rancid/netology/router.db
 ```
 nano /etc/hosts
 ```
-# ![images5]()
+# ![images5](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/5.PNG)
 
 - Проверяем запись
 
-# ![images6]()
+# ![images6](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/6.PNG)
  
 - Проверяем ssh подключение к учебному роутеру 
 
-# ![images7]()
+# ![images7](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/7.PNG)
 
 - Настройка списка устройств для сбора конфига
 
@@ -112,14 +112,14 @@ su rancid
 ```
 nano /var/lib/rancid/netology/router.db
 ```
-# ![images8]()
+# ![images8](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/8.PNG)
 
 - Настройка аутентификации
 
 ```
 nano /var/lib/rancid/.cloginrc
 ```
-# ![images9]()
+# ![images9](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/9.PNG)
 
 ### !!! Важно
 Файл .cloginrc должен быть доступен для чтения
@@ -131,7 +131,7 @@ nano /var/lib/rancid/.cloginrc
 ``` 
 chmod 600 .cloginrc
 ```
-# ![images10]()
+# ![images10](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/10.PNG)
 
 !! Можно добавить пользователя rancid в /etc/sudoers, если команда не отработает 
  
@@ -180,8 +180,8 @@ crontab -e
 
 ```
 
-# ![images11]()
-# ![images12]()
+# ![images11](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/11.PNG)
+# ![images12](https://github.com/LokyRUS/homework-NTW-28-2-/blob/nevidimka/images/12.PNG)
 
 ### Правила приема домашнего задания
 
